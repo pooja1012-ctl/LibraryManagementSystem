@@ -21,7 +21,8 @@ public class LibraryManagementApplication {
             System.out.println("6. Display All Members");
             System.out.println("7. Issue Book");
             System.out.println("8. Return Book");
-            System.out.println("9. Exit");
+            System.out.println("9. Display Available Books");
+            System.out.println("10. Exit");
             System.out.print("Enter your choice: ");
 
             while (!sc.hasNextInt()) {
@@ -120,9 +121,12 @@ public class LibraryManagementApplication {
                 break;
 
             case 9:
+                library.displayAvailableBooks();
+                break;
+
+            case 10:
                 FileManager.saveBooks(library.getBooks());
                 FileManager.saveMembers(library.getMembers());
-
                 System.out.println("Exiting Library Management System.");
                 break;
 
@@ -130,7 +134,7 @@ public class LibraryManagementApplication {
                 System.out.println("Invalid choice");
         }
 
-    } while (choice != 9);
+    } while (choice != 10);
 
     sc.close();
 }

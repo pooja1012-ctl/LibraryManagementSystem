@@ -3,7 +3,7 @@ package library;
 
 import java.util.ArrayList;
 
-public class Library {
+public class Library implements Searchable  {
 
     private ArrayList<Book> books;
     private ArrayList<Member> members;
@@ -38,9 +38,14 @@ public class Library {
             return;
         }
 
-        for (Book book : books) {
-            System.out.println(book);
-        }
+     books.forEach(book->System.out.println(book));
+    }
+    
+    public void displayAvailableBooks() {
+    	
+    	books.stream()
+    	.filter(book->book.isAvailable())
+    	.forEach(book->System.out.println(book));
     }
 
     // Search book by id
@@ -161,4 +166,6 @@ public class Library {
     public ArrayList<Member> getMembers() {
         return members;
     }
+    
+    
 }

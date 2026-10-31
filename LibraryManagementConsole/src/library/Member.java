@@ -1,24 +1,19 @@
+
 package library;
 
-public class Member {
-	
-	private int memberId;
-	private String Name;
-	
-	public Member(int memberId, String name) {
-		super();
-		this.memberId = memberId;
-		Name = name;
-	}
-	public int getMemberId() {
-		return memberId;
-	}
-	public String getName() {
-		return Name;
-	}
-	@Override
-	public String toString() {
-		return "memberId :" + memberId
-				+ " Name :" + Name ;
-	}
+public class Member extends Person {
+
+    public Member(int memberId, String name) {
+        super(memberId, name);
+    }
+
+    @Override
+    public String toString() {
+        return "Member ID: " + getId()
+                + ", Name: " + getName();
+    }
+    
+    public int getMemberId() {
+        return getId();
+    }
 }
